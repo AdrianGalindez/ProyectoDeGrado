@@ -1,0 +1,81 @@
+{% extends "./home.html" %}
+{% load static %}
+{% block tittle %} perfil {% endblock %} 
+
+{% block extra_head %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- referencia a estilos  --> 
+    <link rel="stylesheet" href="{% static 'css/perfiles.css' %}">  <!-- referencia a estilos  -->      
+{% endblock %}
+
+{% block content %}  
+<br><br>
+<h1>Perfil de usuario 👤</h1> 
+<h1>Informacion del estudiante</h1>
+<div id="containerInformacionDelEstudiante">
+<!-- <div class="datosDelPerfil"> -->
+<!-- ==============================INFORMACION DEL ESTUDIANTE=================================== -->
+<ul>
+    <li> <b> Nombre :</b></li>
+    <li> <b> Apellido :</b></li>
+    <li> <b>Numero de documento :</b></li>
+    <li> <b>Fecha de Nacimiento :</b></li>
+    <li> <b>Sexo :</b></li>
+    <li> <b>Correo Electrónico :</b></li>
+    <li> <b>Direccion :</b></li>
+    <li> <b>Telefono :</b></li>
+    <li> <b>Grado :</b></li>
+    <li> <b>Promedio :</b></li>
+    <li> <b>Nesecidades Educativas Especiales :</b></li>
+    <li> <a href="#"><b>Editar ✍️</b></a></li>
+</ul>
+<!-- ============================================================================================== -->
+</div>
+
+<!-- ========================================INFORMACION DE EL ACUDIENTE============================== -->
+<h1>Informacion del acudiente</h1>
+<div id="containerInformacionDelAcudiente">
+<ul>
+    <li> <b> Nombre :</b></li>
+    <li> <b> Apellido :</b></li>
+    <li> <b>Numero de documento :</b></li>
+    <li> <b>Fecha de Nacimiento :</b></li>
+    <li> <b>Sexo :</b></li>
+    <li> <b>Correo Electrónico :</b></li>
+    <li> <b>Direccion :</b></li>
+    <li> <b>Telefono :</b></li>
+    <li> <b>Relacion con el estudiante :</b></li>
+    <li> <a href="#"><b>Editar ✍️</b></a></li>
+</ul>
+</div>
+<!-- ======================================================================================== -->
+
+
+<!-- =========================================INFORMACION DEL DOCENTE============================== --> 
+<h1>Informacion del Docente</h1>
+<div id="containerInformacionDelDocente">
+<ul>
+    <li> <b> Nombre :</b></li>
+    <li> <b> Apellido :</b></li>
+    <li> <b>Numero de documento :</b></li>
+    <li> <b>Fecha de Nacimiento :</b></li>
+    <li> <b>Sexo :</b></li>
+    <li> <b>Correo Electrónico :</b></li>
+    <li> <b>Direccion :</b></li>
+    <li> <b>Telefono :</b></li>
+    <li> <a href="#"><b>Editar ✍️</b></a></li>
+</ul>
+</div>
+<!-- ================================================================== -->
+<br>
+
+<!-- =======================================ELIMINAR CUENTA ================================================= -->
+     <div id="eliminarCuenta"> <a href="#"><b>Eliminar cuenta</b></a></div>
+<!-- ======================================================================================== -->
+<br>
+<!-- =====================================CERRAR SESION =================================================== -->
+     <div id="cerrarSesion"> <a href="#"><b>Cerrar sesion</b></a></div>
+<!-- ======================================================================================== -->
+<!-- </div> -->
+<br>
+{% endblock %}

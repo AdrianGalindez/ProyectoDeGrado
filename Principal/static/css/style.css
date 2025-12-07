@@ -1,0 +1,206 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    color: #D91E0D;
+    margin: auto;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #F2F2F2;
+    /* background-image: url('../img/Background.jpg'); */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+}
+
+/* hubicar el pie de pagina abajo del todo  */
+main{
+   flex: 1;
+}
+
+
+
+/* barra de navegacion */
+nav{
+    background-color: #A68B6A;  
+    display: flex;
+    gap: 2%;
+    min-height: 100px;
+    box-shadow: 5% 5% 5% grey;
+}
+
+/* margen del nav */
+nav a{
+    text-decoration: none;
+    display:inline-block;
+    margin: auto;
+    color: inherit;
+    font-size: 105%;
+}
+
+nav div{
+    display:inline-block;
+    margin: auto;
+}
+
+
+
+/* pie de pagina  */
+footer{
+     background-color: #A68B6A;
+     padding: 0;
+     text-align: center;
+     min-height: 150px;
+     max-height: 150px;
+     margin-bottom: 0;
+}
+
+#modoOscuroContainer{
+     position: absolute;
+     z-index: 9999;
+     margin-top: 7%;
+}
+
+/* botones del nav  */
+nav button{
+    margin: auto;
+}
+
+/* slide fuente  */
+#tamañoFuente{
+    width: 10%;
+    margin: auto;
+}
+
+/* slide contraste  */
+#contraste{
+    width: 10%;
+    margin: auto;
+}
+
+/* =====================================MODO OSCURO================================================= */
+/* clase para el modo oscuro del body */
+.bodyModoOscuro{
+    color: white;
+    background-color: #1A1A1A;
+}
+
+
+/* clase para modo oscuro del nav y el footer */
+.NavFooterModoOscuro{
+    background-color: #333333;
+    color: white;
+}
+
+.chatModoOscuro{
+    background-color: #4d4a4a;
+    color: white;
+    border: solid 2px white;
+    width: 60%;
+    padding: 1%;
+    /* border-radius: 10px; */
+    margin: auto;
+}
+/* ========================================================================================================  */
+
+
+#carrusel{
+    height: 80%;
+    overflow: hidden;
+}
+
+#carrusel .carousel-item{
+    height: 100%;
+}
+
+#carrusel .carousel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#carrusel .carousel-inner{
+    height: 100%;
+}
+
+
+/* ==============================CHAT============================ */
+.chat{
+    /* margin: 3%; */
+    margin: auto;
+    border: solid 2px black;
+    width: 60%;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+#areaDeTexto {
+    width: 30%;
+    height: 20%;
+    /* margin: auto; */
+    /* background-color: rgb(110, 109, 110); */
+    margin: 1%;
+
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+
+#generar {
+    background-color: #D91E0D;
+    width: 20%;
+    color: white;
+    border-radius: 5%;
+    padding: 1%;
+    cursor: pointer;
+    margin: 1% ;
+}
+/* =========================================================== */ 
+
+
+/* =================NAV RESPONSIVE ANDROID================== */
+@media(max-width: 600px){
+
+    nav{
+        display: block;
+        text-align: center;
+        min-height: auto;
+
+    }
+
+    nav a{
+        display: block;
+    }
+
+    #iniciarSesion{
+        display: block;
+        margin: auto;
+    }
+    
+    #registrarse{
+        display: block;       
+        margin: auto;
+       
+    }
+
+    #modoOscuroContainer{
+     position: absolute;
+     z-index: 9999;
+     margin-top:60%;
+    }   
+
+    
+   
+}
+/* ================================================ */
+
+

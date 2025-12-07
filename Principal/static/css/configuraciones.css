@@ -1,0 +1,27 @@
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#idioma{
+    width: 10%;
+    margin: auto;
+}
+
+
+h1{
+    color: #D91E0D;
+
+}
+
+#containerConfiguraciones{
+    margin: auto;
+    border: solid 2px black;
+}
+
+
+#containerAccesibilidad{
+    margin: auto;
+    border: solid 2px black;
+}

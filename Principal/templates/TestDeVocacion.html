@@ -1,0 +1,21 @@
+{% extends "./home.html" %}
+{% block tittle %} test de vocacion {% endblock %} 
+{% load static %}
+{% block extra_head %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- referencia a estilos  --> 
+    <link rel="stylesheet" href="{% static 'css/test.css' %}">  <!-- referencia a estilos  -->      
+{% endblock %}
+
+{% block content %}  
+<br>
+<br>
+<h1>Genera Tu respuesta con IA 🤖 ⛓️‍💥</h1> 
+<div class="chat">
+<label for="etiqueta">Preguntar a la IA :</label><br>
+<div id="areaDeTexto"><textarea name="prompt"></textarea></div><br>
+<input type="file" accept="audio/" capture="microphone">
+<input type="file" accept="audio/" capture="microphone"><br>
+<button id="generar">Generar respuesta</button>
+</div>
+{% endblock %}
