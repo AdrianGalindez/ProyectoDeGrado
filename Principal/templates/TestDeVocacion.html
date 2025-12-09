@@ -4,18 +4,84 @@
 {% block extra_head %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- referencia a estilos  --> 
-    <link rel="stylesheet" href="{% static 'css/test.css' %}">  <!-- referencia a estilos  -->      
+    <link rel="stylesheet" href="{% static 'css/tests.css' %}">  <!-- referencia a estilos  -->      
 {% endblock %}
 
 {% block content %}  
 <br>
 <br>
+<!-- ================================= CHAT =========================================== -->
 <h1>Genera Tu respuesta con IA 🤖 ⛓️‍💥</h1> 
 <div class="chat">
+
+<form method="post" action="{% url 'test' %}">
+{% csrf_token %}
 <label for="etiqueta">Preguntar a la IA :</label><br>
-<div id="areaDeTexto"><textarea name="prompt"></textarea></div><br>
-<input type="file" accept="audio/" capture="microphone">
-<input type="file" accept="audio/" capture="microphone"><br>
+<div id="areaDeTexto">
+<textarea name="prompt"></textarea></div><br>
+<input type="file" accept="audio/*" capture="microphone">
+<input type="file" accept="audio/*" capture="microphone"><br>
 <button id="generar">Generar respuesta</button>
+</form>
 </div>
+<br>
+<!-- ================================================================================= -->
+
+<div id="respuesta">
+  {% for history  in historial %}
+  
+  <div id="historial_prompt">
+  <label for="">Tu : </label> 
+  {{ history.text }}
+  <br>
+  </div>
+  {% endfor %}
+  <h2>Respuesta generada por la IA:</h2>
+  {{ respuesta }}
+</div> 
+
+<!-- ========================================OPCIONES============================================ -->
+<h1>Selecciona la respuesta correcta:</h1>
+<div id="opciones_test">
+  
+<h2>Pregunta : </h2>
+<h2>¿Donde nacio cristobal colon ?</h2>
+  <form action="{% url 'test' %}" method="post">
+    {% csrf_token %} 
+
+  <div class="opcion">
+  <label for="">A</label>
+  <input type="checkbox" name="opcion_A" >
+  <text>España</text>
+  <br>
+  </div>
+
+  <div class="opcion">
+  <label for="">B</label>
+  <input type="checkbox" name="opcion_B">
+  <text>Colombia</text>
+  <br>
+  </div>
+
+   
+  <div class="opcion">
+  <label for="">C</label>
+  <input type="checkbox" name="opcion_C">
+  <text>Europa</text>
+  <br>
+  </div>
+
+  <div class="opcion">
+  <label for="">D</label>
+  <input type="checkbox" name="opcion_D">
+  <text>EEUU</text>
+  <br>
+  </div>
+
+  </form>
+
+</div>
+
+<!-- ============================================================================================= -->
+
 {% endblock %}

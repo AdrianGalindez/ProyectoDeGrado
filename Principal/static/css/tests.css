@@ -1,0 +1,19 @@
+h1{
+    color: #D91E0D;
+    margin: auto;
+}
+
+#opciones_test{
+    border: solid 2px black;
+    margin: auto;
+    width: 60%;
+    border-radius: 10px;
+}
+
+label {
+    margin: auto;
+}
+
+.opcion{
+         display: inline;
+}

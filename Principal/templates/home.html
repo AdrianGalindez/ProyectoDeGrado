@@ -92,16 +92,40 @@
 <br>
 <h1>Genera Tu respuesta con IA 🤖 ⛓️‍💥</h1> 
 <div class="chat" id="chatContainer">
+
+<form method="post" action="{% url 'home' %}">
+{% csrf_token %}
 <label for="etiqueta">Preguntar a la IA :</label><br>
-<div id="areaDeTexto"><textarea name="prompt"></textarea></div><br>
-<input type="file" accept="audio/" capture="microphone">
-<input type="file" accept="audio/" capture="microphone"><br>
-<button id="generar">Generar respuesta</button>
+<div id="areaDeTexto">
+<textarea name="prompt"></textarea>
+</div><br>
+<input type="file" accept="audio/*" capture="microphone">
+<input type="file" accept="audio/*" capture="microphone"><br>
+<button id="generar" type="submit">Generar respuesta</button>
+</form>
 </div>
 <br>
 <!-- ====================================================================================================== -->
+ 
+<div id="respuesta" >
+  <form action="{% url 'home' %}" method="post">
+    {% csrf_token %}  
+  <button id="borrarHistorial" type="submit" name="borrarHistorial">Borrar historial</button>
+  </form>
+  {% for history  in historial %}
+  
+  <div id="historial_prompt">
+  <label for="">Tu : </label> 
+  {{ history.text }}
+  <br>
+  </div>
+  {% endfor %}
+  <h2>Respuesta generada por la IA:</h2>
+  {{ respuesta }}
+</div> 
 
     {% endblock %} 
+    <br>
 <!-- =================================================================-->
  
 <!-- ============================FOOTER================================= -->

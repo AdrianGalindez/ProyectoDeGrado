@@ -84,34 +84,12 @@ nav button{
     margin: auto;
 }
 
-/* =====================================MODO OSCURO================================================= */
-/* clase para el modo oscuro del body */
-.bodyModoOscuro{
-    color: white;
-    background-color: #1A1A1A;
-}
 
-
-/* clase para modo oscuro del nav y el footer */
-.NavFooterModoOscuro{
-    background-color: #333333;
-    color: white;
-}
-
-.chatModoOscuro{
-    background-color: #4d4a4a;
-    color: white;
-    border: solid 2px white;
-    width: 60%;
-    padding: 1%;
-    /* border-radius: 10px; */
-    margin: auto;
-}
-/* ========================================================================================================  */
 
 
 #carrusel{
-    height: 80%;
+    min-height: 400px;
+    max-height: 600px;
     overflow: hidden;
 }
 
@@ -139,6 +117,31 @@ nav button{
     padding: 1%;
     border-radius: 10px;
 }
+/* =====================================MODO OSCURO================================================= */
+/* clase para el modo oscuro del body */
+.bodyModoOscuro{
+    color: white;
+    background-color: #1A1A1A;
+}
+
+
+/* clase para modo oscuro del nav y el footer */
+.NavFooterModoOscuro{
+    background-color: #333333;
+    color: white;
+}
+
+.chatModoOscuro{
+    background-color: #4d4a4a;
+    color: white;
+    border: solid 2px white !important;
+    width: 60%;
+    padding: 1%;
+    border-radius: 10px;
+    margin: auto;
+}
+/* ========================================================================================================  */
+
 
 #areaDeTexto {
     width: 30%;
@@ -165,8 +168,34 @@ textarea {
     margin: 1% ;
 }
 /* =========================================================== */ 
+#borrarHistorial {
+    background-color: #D91E0D;
+    width: 20%;
+    color: white;
+    border-radius: 5%;
+    padding: 1%;
+    cursor: pointer;
+    margin: 1% ;
+}
 
+#respuesta{
+    margin: auto;
+    padding: 1%;
+    border: solid 2px black;
+    width: 60%;
+    border-radius: 10px;
 
+}
+
+#historial_prompt{
+    display: flex;
+    margin: 1%;
+    padding: 1%;
+    border: solid 2px black;
+    width: 100%;
+    border-radius: 10px;
+    justify-content: flex-end;
+}
 /* =================NAV RESPONSIVE ANDROID================== */
 @media(max-width: 600px){
 
@@ -197,8 +226,6 @@ textarea {
      z-index: 9999;
      margin-top:60%;
     }   
-
-    
    
 }
 /* ================================================ */

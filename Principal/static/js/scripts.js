@@ -4,9 +4,16 @@ function toggleModoOscuro(){
         const inputModoOscuro = document.getElementById("modoOscuro");
         
         const contenedorChat = document.getElementById("chatContainer");
+
+        const contenedorRespuesta = document.getElementById("respuesta");
+
         const body = document.querySelector("body");
+
         const nav = document.querySelector("nav");
+
         const footer = document.querySelector("footer");
+
+
 
         if (inputModoOscuro.checked){
 
@@ -18,7 +25,10 @@ function toggleModoOscuro(){
 
             contenedorChat.classList.add("chatModoOscuro");
 
+            contenedorRespuesta.classList.add("chatModoOscuro");
+
             localStorage.setItem("modoOscuro", "true"); // Guardar el estado en localStorage
+            
         }else{
 
             body.classList.remove("bodyModoOscuro");
@@ -28,6 +38,8 @@ function toggleModoOscuro(){
             footer.classList.remove("NavFooterModoOscuro");
 
             contenedorChat.classList.remove("chatModoOscuro");
+
+            contenedorRespuesta.classList.remove("chatModoOscuro");
 
             localStorage.setItem("modoOscuro", "false"); // Guardar el estado en localStorage
         }      

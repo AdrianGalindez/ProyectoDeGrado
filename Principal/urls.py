@@ -3,6 +3,7 @@ from . import views # import de la vista
 from django.urls import path, include  # librerias nesesarias para hacer la referencia desde url.py del proyecto 
 
 urlpatterns = [
+    
   path('',views.home,name="home"), # url home 
   path('testDeVocacion/',views.test,name="test"), # url test
   path('recomendaciones/',views.recomendaciones,name="recomendaciones"), # url recomendaciones
