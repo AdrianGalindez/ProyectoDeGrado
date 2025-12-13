@@ -151,13 +151,15 @@ llamada_prompt=prompt.format(falencias="matematicas")
 
 chat_prompt= ChatPromptTemplate.from_messages([
     ("system", ''' eres un generador estricto de JSON.
+    genera un contexto para la pregunta.
     genera una unica pregunta tipo ICFES.
     el formato del cuestionario debe ser opcion multiple unica respuesta.
     responde unicamente en formato Json valido sin texto adicional.
     no generes listas ni multiples objetos.
     no repeitas preguntas.
     estructura obligatoria \n:
-    {{"pregunta": "",
+    {{"contexto": "",
+    "pregunta": "",
     "A": "",
     "B": "",
     "C": "",
@@ -173,6 +175,7 @@ def get_respuesta(mensages):
         return json.loads(respuesta)
    except json.JSONDecodeError:
         return {
+            "contexto": "error al generar contexto",
             "pregunta": "error al generar cuestionario",
             "A": "",
             "B": "",

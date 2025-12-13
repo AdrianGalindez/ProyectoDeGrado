@@ -60,14 +60,21 @@
 
 <form action="{% url 'test' %}" method="post" >
 {% csrf_token %} 
-{% for q in quizes %}   
-<h2>{{ q.pregunta }}</h2>
+{% for q in quizes %}
+<br>
+<h2>{{ q.contexto }}</h2>
+<br> 
+
+
+<span>{{ q.pregunta }}</span>
+<br>
   <div class="opcion">
   <label for="">A</label>
   <input type="radio" name="opciones_{{ q.id }}" value="A">
   <span>{{ q.A }}</span>
   <br>
   </div>
+
 
   <div class="opcion">
   <label for="">B</label>
@@ -84,6 +91,7 @@
   <br>
   </div>
 
+
   <div class="opcion">
   <label for="">D</label>
   <input type="radio" name="opciones_{{ q.id }}" value="D">
@@ -92,7 +100,7 @@
   </div>
   <div>
     
-    <div class="respuesta_correcta ocultar_respuesta">
+    <div class="respuesta_correcta ocultar_respuesta data_respuesta={ q.respuesta_correcta}"data-respuesta="{{ q.respuesta_correcta}}">
       <span>Respuesta correcta:</span>
       {{ q.respuesta_correcta }}
     </div>
