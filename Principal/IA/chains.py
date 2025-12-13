@@ -7,6 +7,8 @@ from langchain_core.prompts import PromptTemplate,ChatPromptTemplate,MessagesPla
 
 from langchain_core.runnables import Runnable,RunnableLambda,RunnableParallel
 
+from langchain_core.messages import AIMessage,HumanMessage, SystemMessage #importación de la clase PromptTemplate desde langchain.templates
+
 import json
 # ========================================================================================================
 
@@ -149,6 +151,44 @@ prompt= PromptTemplate(
 llamada_prompt=prompt.format(falencias="matematicas")
 
 
+# chat_prompt= ChatPromptTemplate.from_messages([
+#     ("system", ''' eres un generador estricto de JSON.
+#     genera un contexto para la pregunta.
+#     genera una unica pregunta tipo ICFES.
+#     el formato del cuestionario debe ser opcion multiple unica respuesta.
+#     responde unicamente en formato Json valido sin texto adicional.
+#     no generes listas ni multiples objetos.
+#     no repeitas preguntas.
+#     estructura obligatoria \n:
+#     {{"contexto": "",
+#     "pregunta": "",
+#     "A": "",
+#     "B": "",
+#     "C": "",
+#     "D": "",
+#     "respuesta_correcta":""}}'''),
+#     ("human","{texto}")
+# ])
+
+
+
+
+
+# def get_respuesta(mensages):
+#    respuesta= llm.invoke(mensages)
+#    try:
+#         return json.loads(respuesta)
+#    except json.JSONDecodeError:
+#         return {
+#             "contexto": "error al generar contexto",
+#             "pregunta": "error al generar cuestionario",
+#             "A": "",
+#             "B": "",
+#             "C": "",
+#             "D": "",
+#             "respuesta_correcta": ""
+#         }
+
 chat_prompt= ChatPromptTemplate.from_messages([
     ("system", ''' eres un generador estricto de JSON.
     genera un contexto para la pregunta.
@@ -166,14 +206,34 @@ chat_prompt= ChatPromptTemplate.from_messages([
     "D": "",
     "respuesta_correcta":""}}'''),
     ("human","{texto}")
+    # MessagesPlaceholder(variable_name="ejemplos"),
 ])
 
 
-def get_respuesta(mensages):
-   respuesta= llm.invoke(mensages)
-   try:
+# Few-shot examples para análisis de sentimientos
+
+
+
+def get_respuesta(materia):
+    # ejemplos = [
+    # HumanMessage(content="texto:"),
+    # AIMessage(content='''{
+    # "contexto": "Un colegio necesita enviar 5 estudiantes como representantes a un foro sobre la contaminación del medio ambiente.Se decidió que 2 estudiantes sean de grado décimo y 3 de grado undécimo. En décimo hay 5 estudiantes preparados para el foro y en undécimo hay 4.",
+    # "pregunta": "¿Cuántos grupos diferentes pueden formarse para enviar al foro?",
+    # "A": "9",
+    # "B": "14",
+    # "C": "20",
+    # "D": "40",
+    # "respuesta_correcta":"D"}''')    
+    # ]
+    mensages=chat_prompt.format_messages(
+        texto =materia
+        # ejemplos=ejemplos
+    )
+    respuesta= llm.invoke(mensages)
+    try:
         return json.loads(respuesta)
-   except json.JSONDecodeError:
+    except json.JSONDecodeError:
         return {
             "contexto": "error al generar contexto",
             "pregunta": "error al generar cuestionario",
@@ -183,5 +243,6 @@ def get_respuesta(mensages):
             "D": "",
             "respuesta_correcta": ""
         }
-  
+   
+
  #===================================================================================================
