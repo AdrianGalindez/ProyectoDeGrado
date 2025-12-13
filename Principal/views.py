@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import JsonResponse #, HttpResponse
 from .IA.chains import get_chain, get_historial_chain,get_respuestas,get_Cuestonarios,chat_prompt,get_respuesta
 # ===============================================================================
+from langchain_core.messages import AIMessage,HumanMessage, SystemMessage #importación de la clase PromptTemplate desde langchain.templates
 
 # Create your views here.       
 
@@ -40,18 +41,14 @@ def test(request):
         materia=request.POST.get("materia","")
     else:
         materia = "Ingles"
-    mensages=chat_prompt.format_messages(
-         texto =materia
-    )
     quizes = []
     for i in range(9):
-       mensages= chat_prompt.format_messages(texto=materia)
-       quiz=get_respuesta(mensages)
+       quiz=get_respuesta(materia)
        quiz["id"]=i
        quizes.append(quiz)
     print(quizes)
     contexto= range(1,10)
-    return render(request,"TestDeVocacion.html", {"frase": frase, "historial": historial,"quizes": quizes,"contexto": contexto})     # view test de vocacion 
+    return render(request,"TestDeVocacion.html", {"frase": frase, "historial": historial,"quizes": quizes,"contexto": contexto})  
 # ==============================================================================
 
 
